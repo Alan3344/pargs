@@ -194,7 +194,7 @@ func (p *ParamList) Float(options []string, param *float64, defaultValue float64
 			if v == o {
 				if i+1 < len(args) {
 					if !(strings.HasPrefix(args[i+1], "-") || strings.HasPrefix(args[i+1], "--")) {
-						_, err := fmt.Sscanf(args[i+1], "%.2f", param)
+						_, err := fmt.Sscanf(args[i+1], "%f", param)
 						if err != nil {
 							fmt.Printf(strings.Join([]string{"选项", o, "参数错误", "预期类型:", reflect.TypeOf(param).String()}, " ") + "\n")
 							os.Exit(1)
